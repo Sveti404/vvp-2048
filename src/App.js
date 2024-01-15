@@ -95,7 +95,7 @@ function App() {
 					<h1>Hävisit pelin</h1>
 					<p>Pisteitä saatu: {score}</p>
 					<button onClick={() => {
-						if (score > bestScore) {
+						if (score >= bestScore) {
 							setBestScore(score);
 							localStorage.setItem('bestScore', score);
 						}
@@ -114,7 +114,7 @@ function App() {
 							setContinueAfterWin(true);
 						}} className='start-button'>Jatka pelaamista</button>
 						<button onClick={() => {
-							if (score > bestScore) {
+							if (score >= bestScore) {
 								setBestScore(score);
 								localStorage.setItem('bestScore', score);
 							}
