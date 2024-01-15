@@ -1,8 +1,8 @@
 {
   "name": "vvp-2048",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://sveti404.github.io/vvp-2048",
+  "homepage": "https://oispapaasky.fi",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
