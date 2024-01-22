@@ -17,6 +17,16 @@ body,
 	flex-direction: column;
 }
 
+.loading-page {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: white;
+	text-align: center;
+}
 
 
 .darker-background {
