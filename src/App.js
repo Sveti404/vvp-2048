@@ -31,6 +31,7 @@ function ThemeList(props) {
 function App() {
 	const [score, setScore] = useState(0);
 	const [bestScore, setBestScore] = useState(0);
+	const [currentHighestScore, setCurrentHighestScore] = useState(false);
 	const [restart, setRestart] = useState(false);
 	const [gameOver, setGameOver] = useState(false);
 	const [won, setWon] = useState(false);
@@ -48,6 +49,7 @@ function App() {
 	});
 
 	const isWideScreen = useMediaQuery({ minWidth: 512 });
+	
 
 	useEffect(() => {
 		let storedTheme = localStorage.getItem('theme');
@@ -61,18 +63,21 @@ function App() {
 		if (storedBestScore) {
 			setBestScore(storedBestScore);
 		} else {
-			setBestScore(score);
+			localStorage.setItem('bestScore', 0);
 		}
 	}, [score])
 
 	useEffect(() => {
+		if (bestScore > 0 && score >= bestScore && !currentHighestScore) {
+			setCurrentHighestScore(true)
+		}
 		if (gameOver) {
 			if (score > bestScore) {
 				setBestScore(score);
 				localStorage.setItem('bestScore', score);
 			}
 		}
-	}, [gameOver, score, bestScore])
+	}, [gameOver, score, bestScore, currentHighestScore])
 
 	return (
 		<>
@@ -102,6 +107,8 @@ function App() {
 						setGameOver(false);
 						setScore(0);
 						setRestart(!restart);
+						setCurrentHighestScore(false);
+
 					}} className='start-button'>Yritä uudelleen</button>
 				</div>
 				<div className={'game-over ' + ((won) ? 'animate' : '')} style={{ color: 'white' }}>
@@ -121,6 +128,7 @@ function App() {
 							setWon(false);
 							setScore(0);
 							setRestart(!restart);
+							setCurrentHighestScore(false);
 						}} className='start-button'>Aloita uusi peli</button>
 					</span>
 
@@ -132,7 +140,7 @@ function App() {
 					</div>
 					<div className='above-right'>
 						<div className='scores'>
-							<div className='score-container'>PISTEITÄ <br></br>{score}</div>
+							<div className='score-container' style={{boxShadow: (currentHighestScore) ? '0 0 15px 4px #d6b034' : null}}>PISTEITÄ <br></br>{score}</div>
 							<div className='score-container'>PARAS <br></br>{bestScore}</div>
 						</div>
 
@@ -143,6 +151,7 @@ function App() {
 							}
 							setScore(0);
 							setRestart(!restart);
+							setCurrentHighestScore(false);
 						}} className='restart-button' style={{ order: 3 }}>Uusi peli</button>
 					</div>
 				</div>

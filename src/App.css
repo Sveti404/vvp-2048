@@ -352,3 +352,77 @@ body,
 
 	}
 }
+
+@media (max-width: 324px) {
+	.game-container {
+		width: 250px;
+		height: 250px;
+		padding: 10px;
+		margin-top: 20px;
+	}
+
+	.grid-container {
+		width: 250px;
+		height: 250px;
+		
+		gap: 10px;
+	}
+
+	.cell {
+		height: 55px;
+		width: 55px;
+		border-radius: 5px;
+		background-color: rgb(255 255 255 / 80%);
+	}
+	
+	.tile {
+		height: 55px;
+		width: 55px;
+	}
+
+	.above-container {
+		width: 270px;
+		gap: 10px;
+		margin-right: 0px;
+
+	}
+	
+	.above-left {
+		font-size: 22px;
+	
+	}
+	
+	.above-right {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.scores {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.start-button {
+		font-size: 14px;
+		width: 150px;
+		padding: 10px;
+	}
+
+	.right-container {
+		margin-top: 0px;
+		margin-left: 10px;
+	}
+
+	.settings {
+
+		width: 200px;
+		height: 190px;
+		font-size: 20px;
+
+	}
+
+	.win-buttons > .start-button {
+		font-size: 13px;
+		width: 100px;
+	}
+}
